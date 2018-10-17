@@ -22,16 +22,16 @@ server.get('/news', function (req, res) {
       if (response.status === 'ok' && response.articles.length > 0) {
           const articles = response.articles.map(article => {
               return {
-                  "title": article.title
-                  // "image_url": article.urlToImage,
-                  // "subtitle": article.description,
-                  // "buttons": [
-                  //     {
-                  //         "type": "web_url",
-                  //         "url": article.url,
-                  //         "title": "Read Full Article"
-                  //     }
-                  // ]
+                  "title": article.title,
+                  "image_url": article.urlToImage,
+                  "subtitle": article.description,
+                  "buttons": [
+                      {
+                          "type": "web_url",
+                          "url": article.url,
+                          "title": "Read Full Article"
+                      }
+                  ]
               }
           });
           
@@ -43,7 +43,7 @@ server.get('/news', function (req, res) {
                           "payload": {
                               "template_type": "generic",
                               "image_aspect_ratio": "square",
-                              "elements": articles.slice(0)
+                              "elements": articles.slice(0, 10)
                           }
                       }
                   }
