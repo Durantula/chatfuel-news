@@ -43,7 +43,7 @@ server.get('/news', function (req, res) {
                           "payload": {
                               "template_type": "generic",
                               "image_aspect_ratio": "square",
-                              "elements": articles.slice(0, 10)
+                              "elements": articles[0]
                           }
                       }
                   }
